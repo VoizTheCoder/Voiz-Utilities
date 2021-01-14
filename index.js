@@ -7,8 +7,7 @@ client.once('ready', () => {
 
 client.login(process.env.token);
 
-client.on('message', message => {
-	if (message.content === 'JanuarySale') {
-		message.channel.send('Redeemed Code JanuarySale');
+if (command === 'JanuarySale') {
+	-	message.channel.send('Redeemed');
+	+	client.commands.get('ping').execute(message, args);
 	}
-});

@@ -6,10 +6,3 @@ client.once('ready', () => {
 });
 
 client.login(process.env.token);
-
-//Chat Features
-
-if (command === 'JanuarySale') {
-	-	message.channel.send('Redeemed Code JanuarySale');
-	+	client.commands.get('ping').execute(message, args);
-	}

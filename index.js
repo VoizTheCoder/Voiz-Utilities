@@ -12,3 +12,7 @@ client.on('message', message => {
 		message.channel.send('The Developer is Voiz');
 	}
 });
+
+if (message.content === '!react') {
+	message.react('😄');
+}

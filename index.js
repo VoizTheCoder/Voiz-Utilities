@@ -7,7 +7,9 @@ client.once('ready', () => {
 
 client.login(process.env.token);
 
-if (command === 'JanuarySale') {
-	-	message.channel.send('Redeemed');
+// Auto Moderation
+
+if (command === 'Fuck') {
+	-	message.channel.send('Dont Say That');
 	+	client.commands.get('ping').execute(message, args);
 	}

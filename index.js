@@ -6,3 +6,9 @@ client.once('ready', () => {
 });
 
 client.login(process.env.token);
+
+client.on('message', message => {
+	if (message.content === '!dev') {
+		message.channel.send('The Developer is Voiz');
+	}
+});

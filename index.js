@@ -15,12 +15,12 @@ client.on('message', message => {
 
 client.on('message', message => {
 	if (message.content === '!help') {
-		message.channel.send('For Extra Support Join The Voiz Utilities Discord Server: https://discord.gg/N3sbJbrXyr');
+		message.channel.send('For Extra Support Join The Voiz Utilities Discord Server: https://discord.gg/4HU6qreYAu');
 	}
 });
 
 client.on('message', message => {
 	if (message.content === '!servers') {
-		message.channel.send('Servers This Bot is used in is: \n Voiz Dream World: https://discord.gg/EXzPbrp6yZ \n Voiz Utilities Bot Hub: https://discord.gg/N3sbJbrXyr \n \n With More To Come!  ');
+		message.channel.send('Servers This Bot is used in is: \n Voiz Dream World: https://discord.gg/EXzPbrp6yZ \n Voiz Utilities Bot Hub: https://discord.gg/4HU6qreYAu \n \n With More To Come!  ');
 	}
 });

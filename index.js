@@ -7,4 +7,9 @@ client.once('ready', () => {
 
 client.login(process.env.token);
 
-// Auto Moderation
+//Chat Features
+
+if (command === 'hi') {
+	-	message.channel.send('hi');
+	+	client.commands.get('ping').execute(message, args);
+	}

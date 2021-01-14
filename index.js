@@ -18,3 +18,9 @@ client.on('message', message => {
 		message.channel.send('For Extra Support Join The Voiz Utilities Discord Server: https://discord.gg/N3sbJbrXyr');
 	}
 });
+
+client.on('message', message => {
+	if (message.content === '!servers') {
+		message.channel.send('Servers This Bot is used in is: \n Voiz Dream World: https://discord.gg/EXzPbrp6yZ \n Voiz Utilities Bot Hub: https://discord.gg/N3sbJbrXyr \n \n With More To Come!  ');
+	}
+});

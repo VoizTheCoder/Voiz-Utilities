@@ -27,7 +27,7 @@ client.on('message', message => {
 
 client.on('message', message => {
 	if (message.content === '!commands') {
-		message.channel.send(' Last Updated 14/01/21 \n The Current Commands Are: \n `!devs` Get a list of the bots Scripters and testers \n `!servers` Get A list of the servers the bot is in \n `!help` Get Help. ');
+		message.channel.send(' Last Updated 14/01/21 \n The Current Commands Are: \n `!devs` Get a list of the bots Scripters and testers \n `!servers` Get A list of the servers the bot is in \n `!help` Get Help. \n `!rules` View the servers Rules \n `!weclome` Welcome A user to the server!');
 	}
 });
 
@@ -44,12 +44,13 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-	if (message.content === '!rules VDW') {
-		message.channel.send('Sorry. We Hit A RoadBlock. The Command `!rules VDW` is currently disabled. Try Again Later');
-	}
-});
-client.on('message', message => {
 	if (message.content === '!rules VBotHub') {
 		message.channel.send('Sorry. We Hit A RoadBlock. The Command `!rules VBotHub` is currently disabled. Try Again Later');
+	}
+});
+
+client.on('message', message => {
+	if (message.content === '!welcome') {
+		message.channel.send('Welcome!');
 	}
 });

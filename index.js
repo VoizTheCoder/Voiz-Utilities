@@ -60,3 +60,9 @@ client.on('message', message => {
 		message.channel.send('Shhh!');
 	}
 });
+
+client.on('message', message => {
+	if (message.content === '!meme') {
+		message.channel.send('Sorry. The Command `!meme` is currently a feature for the future. If toy want to receive updates. Join The Voiz Utilities Server! \n https://discord.gg/4HU6qreYAu');
+	}
+});

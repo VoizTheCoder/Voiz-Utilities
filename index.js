@@ -54,3 +54,9 @@ client.on('message', message => {
 		message.channel.send('Welcome!');
 	}
 });
+
+client.on('message', message => {
+	if (message.content === 'secret') {
+		message.channel.send('Shhh!');
+	}
+});

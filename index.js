@@ -73,7 +73,7 @@ client.on('message', message => {
 	if (!message.guild) return;
    
    
-	if (message.content.startsWith('?kick')) { //**This is the command, this says if someone says ?kick then pay attention to teh rest to teh bot.**\\ 
+	if (message.content.startsWith('!kick')) { //**This is the command, this says if someone says ?kick then pay attention to teh rest to teh bot.**\\ 
 	  
 	  const user = message.mentions.users.first(); // This says if you mention this user, it is talking about that user
 	 

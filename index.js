@@ -4,7 +4,7 @@ const client = new Discord.Client();
 
 client.once('ready',  () => {
     console.log('Voiz Utilities is online!');
-    client.user.setActivity(`!help in ${client.guilds.cache.size} servers!`, {type:'PLAYING'});
+    client.user.setActivity(`Voiz's Servers`, {type:'WATCHING'});
 }); 
 
 client.login(process.env.token);

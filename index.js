@@ -69,33 +69,73 @@ client.on('message', message => {
 	}
 }); 
 
-module.exports = {
-    name: '!kick', 
-    description: "this command kicks a member!",
-    execute(message, args){
-        const member = message.mentions.users.first();
-        if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You do not have perm to use the \"kick\" command.")
-        if(!args[0]) return message.channel.send('who do you want kicked')
-            const memberTarget = message.guild.members.cache.get(member.id);
-            memberTarget.kick({reason:`${args[1]}`});
-            message.channel.send(`User has been kicked , reason:${args[1]}`);
-
-        }
-	}
-	
-	module.exports = {
-		name: '!ban', 
-		description: "this command bans a member!",
-		async execute(message, args, Discord, client){
+client.on('message', message => {
+ 
+	if (!message.guild) return;
+   
+   
+	if (message.content.startsWith('!kick')) {
+	  
+	  const user = message.mentions.users.first(); // This says if you mention this user, it is talking about that user
+	 
+	  if (user) {
+	 
+		const member = message.guild.member(user);
+	  
+		if (member) {
+	   
+		  member.kick('User Was Kicked').then(() => {
+		 
+			message.reply(`Successfully kicked ${user}`);
+		  }).catch(err => {
+		   
+			message.reply('I was unable to kick the member. Check if their roles are higher then mine or if they have administrative permissions!');
 			
-			if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("❌You cannot use that!")
-			if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send('I don\'t have the right permissions!')
-			const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
-			if (!args[0]) return message.channel.send("❌**Please mention someone!**");
-			if (!member) return message.channel.send("❌**Could not find that member!**")
-	
-		   message.channel.send(`${member} has been baned`)
-					member.ban({})
-				}
-	
+			console.error(err);
+		  });
+		} else {
+		 
+		  message.reply('That user isn\'t in this guild!');
 		}
+   
+	  } else {
+		message.reply('You didn\'t mention the user to kick!'); // Thus is creating a message so that you know if you failed 
+  // The / is to show the script that the (') is not the end of it
+	  }
+	}
+  });
+
+  client.on('message', message => {
+    
+    if (!message.guild) return;
+  
+  
+    if (message.content.startsWith('!ban')) {
+      const user = message.mentions.users.first()
+    
+      if (user) {
+       
+        const member = message.guild.member(user);
+     
+        if (member) {
+         
+          member.ban({
+            reason: reason
+          }).then(() => {
+            message.reply(`Successfully banned ${user.tag}`); // this is the message that will be.
+          }).catch(err => {
+          
+            message.reply('I was unable to ban the member. Check if their roles are higher then mine or if they have administrative permissions!'); 
+        
+            console.error(err);
+          });
+        } else {
+         
+          message.reply('That user isn\'t in this guild!');
+        }
+      } else {
+      
+        message.reply('You didn\'t mention the user to ban!');
+      }
+    }
+  });

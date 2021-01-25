@@ -5,7 +5,6 @@ const client = new Discord.Client();
 client.once('ready',  () => {
     console.log('Voiz Utilities is online!');
 	client.user.setActivity(`Voiz's Servers`, {type:'WATCHING'});
-	client.user.setStatus('dnd');
 }); 
 
 client.login(process.env.token);

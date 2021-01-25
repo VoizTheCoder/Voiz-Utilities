@@ -1,11 +1,11 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-client.user.setActivity('Out For Naughty People', { type: 'WATCHING' });
 
-client.once('ready', () => {
-	console.log('Ready!');
-});
+client.once('ready',  () => {
+    console.log('RaNd0m is online!');
+    client.user.setActivity(`IDK  |  _help in ${client.guilds.cache.size} servers!`, {type:'PLAYING'});
+}); 
 
 client.login(process.env.token);
 

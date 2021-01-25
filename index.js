@@ -4,7 +4,7 @@ const client = new Discord.Client();
 
 client.once('ready',  () => {
     console.log('RaNd0m is online!');
-    client.user.setActivity(`!help in ${client.guilds.cache.size} servers!`, {type:'PLAYING'});
+    client.user.setActivity(`to ${client.guilds.cache.size} servers!`, {type:'Listening'});
 }); 
 
 client.login(process.env.token);

@@ -3,8 +3,8 @@ const client = new Discord.Client();
 
 
 client.once('ready',  () => {
-    console.log('Bot is online!');
-    client.user.setActivity(`to ${client.guilds.cache.size} servers!`, {type:'Listening'});
+    console.log('Voiz Utilities is online!');
+    client.user.setActivity(`!help in ${client.guilds.cache.size} servers!`, {type:'PLAYING'});
 }); 
 
 client.login(process.env.token);
@@ -23,7 +23,7 @@ client.on('message', message => {
 
 client.on('message', message => {
 	if (message.content === '!servers') {
-		message.channel.send('Servers This Bot is used in is: \n Voiz Dream World: https://discord.gg/EXzPbrp6yZ \n Voiz Utilities Bot Hub: https://discord.gg/4HU6qreYAu \n \n With More To Come!  ');
+		message.channel.send('The Bot is in ${client.guilds.cache.size} \n \n Servers This Bot is used in is: \n Voiz Dream World: https://discord.gg/EXzPbrp6yZ \n Voiz Utilities Bot Hub: https://discord.gg/4HU6qreYAu \n \n With More To Come!  ');
 	}
 });
 

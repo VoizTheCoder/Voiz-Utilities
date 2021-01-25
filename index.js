@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 
 client.once('ready',  () => {
-    console.log('RaNd0m is online!');
+    console.log('Bot is online!');
     client.user.setActivity(`to ${client.guilds.cache.size} servers!`, {type:'Listening'});
 }); 
 

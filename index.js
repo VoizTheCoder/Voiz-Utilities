@@ -67,5 +67,39 @@ client.on('message', message => {
 	if (message.content === '!meme') {
 		message.channel.send('Sorry. The Command `!meme` is currently a feature for the future. If you want to receive updates. Join The Voiz Utilities Server! \n https://discord.gg/4HU6qreYAu');
 	}
-});
-
+}); 
+client.on('message', message => {
+ 
+	if (!message.guild) return;
+   
+   
+	if (message.content.startsWith('?kick')) { //**This is the command, this says if someone says ?kick then pay attention to teh rest to teh bot.**\\ 
+	  
+	  const user = message.mentions.users.first(); // This says if you mention this user, it is talking about that user
+	 
+	  if (user) {
+	 
+		const member = message.guild.member(user);
+	  
+		if (member) {
+	   
+		  member.kick('Optional reason that will display in the audit logs').then(() => {
+		 
+			message.reply(`Successfully kicked ${user.tag}`);
+		  }).catch(err => {
+		   
+			message.reply('I was unable to kick the member. Check if their roles are higher then mine or if they have administrative permissions!');
+			
+			console.error(err);
+		  });
+		} else {
+		 
+		  message.reply('That user isn\'t in this guild!');
+		}
+   
+	  } else {
+		message.reply('You didn\'t mention the user to kick!'); // Thus is creating a message so that you know if you failed 
+  // The / is to show the script that the (') is not the end of it
+	  }
+	}
+  });

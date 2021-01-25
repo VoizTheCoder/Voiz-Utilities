@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-client.user.setActivity('Watching Voiz Dream World');
+client.user.setActivity('Out For Naughty People', { type: 'WATCHING' });
 
 client.once('ready', () => {
 	console.log('Ready!');

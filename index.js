@@ -1,6 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+client.user.setActivity('Watching Voiz Dream World');
+
 client.once('ready', () => {
 	console.log('Ready!');
 });
@@ -66,3 +68,4 @@ client.on('message', message => {
 		message.channel.send('Sorry. The Command `!meme` is currently a feature for the future. If you want to receive updates. Join The Voiz Utilities Server! \n https://discord.gg/4HU6qreYAu');
 	}
 });
+

@@ -70,7 +70,7 @@ client.on('message', message => {
 }); 
 
 module.exports = {
-    name: 'kick', 
+    name: '!kick', 
     description: "this command kicks a member!",
     execute(message, args){
         const member = message.mentions.users.first();
@@ -84,7 +84,7 @@ module.exports = {
 	}
 	
 	module.exports = {
-		name: 'ban', 
+		name: '!ban', 
 		description: "this command bans a member!",
 		async execute(message, args, Discord, client){
 			

@@ -120,7 +120,7 @@ client.on('message', message => {
         if (member) {
          
           member.ban({
-            reason: reason
+            reason: 'Moderation Ban'
           }).then(() => {
             message.reply(`Successfully banned ${user.tag}`); // this is the message that will be.
           }).catch(err => {

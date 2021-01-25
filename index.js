@@ -122,7 +122,7 @@ client.on('message', message => {
           member.ban({
             reason: 'Moderation Ban'
           }).then(() => {
-            message.reply(`Successfully banned ${user.tag}`); // this is the message that will be.
+            message.reply(`Successfully banned ${user}`); // this is the message that will be.
           }).catch(err => {
           
             message.reply('I was unable to ban the member. Check if their roles are higher then mine or if they have administrative permissions!'); 

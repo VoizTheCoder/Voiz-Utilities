@@ -105,6 +105,7 @@ client.on('message', message => {
 	}
   });
 
+
   client.on('message', message => {
     
     if (!message.guild) return;
@@ -120,21 +121,13 @@ client.on('message', message => {
         if (member) {
          
           member.ban({
-            reason: 'Moderation Ban'
+            reason: 'Moderation Ban',
           }).then(() => {
-            message.reply({
-				"content": null,
-				"embeds": [
-				  {
-					"title": "Successfully Banned",
-					"description": "I have successfully Banned That User",
-					"color": 377855
-				  }
-				]
-			  });
+            message.reply(`Successfully banned ${user.tag}, Why Would They Be So Bad!`); // this is the message that will be.
           }).catch(err => {
           
-            message.reply('I was unable to ban the member. Check if their roles are higher then mine or if they have administrative permissions!'); 
+            message.reply('I Could Not Ban This User. Make Sure To Check If Their Roles Are Above Mine Or They Have Adminsistrator Permissions!'); // if a user does not have permission to use a command on a user or as a member, this message will be send.
+//** for my bot I would say message.reply(`${author.tag}, sorry, I was unable to ban this user! Check to see if there roles are above mine, or if this user is an admin!`)**\\
         
             console.error(err);
           });
@@ -148,3 +141,13 @@ client.on('message', message => {
       }
     }
   });
+
+
+  client.on('guildMemberAdd', member => { //This is creating an event saying when a member joins the server...
+    
+    const channel = member.guild.channels.find(ch => ch.name === '🗨general'); //** This is telling the script which server to send teh message in**\\
+    
+    if (!channel) return;
+   
+    channel.send(`Welcome To Voiz Dream World **${member}** Read the Rules and have a great time!`);
+  }); // That up ^here^ tells the bot what channel to send the message in!

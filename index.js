@@ -145,7 +145,7 @@ client.on('message', message => {
 
   client.on('guildMemberAdd', member => { //This is creating an event saying when a member joins the server...
     
-    const channel = member.guild.channels.find(ch => ch.name === '🗨general'); //** This is telling the script which server to send teh message in**\\
+    const channel = member.guild.channels.find(ch => ch.name === 'general'); //** This is telling the script which server to send teh message in**\\
     
     if (!channel) return;
    

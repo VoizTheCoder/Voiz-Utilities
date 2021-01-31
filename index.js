@@ -29,7 +29,7 @@ client.on('message', message => {
 
 client.on('message', message => {
 	if (message.content === '!commands') {
-		message.channel.send(' Last Updated 14/01/21 \n The Current Commands Are: \n `!devs` Get a list of the bots Scripters and testers \n `!servers` Get A list of the servers the bot is in \n `!help` Get Help. \n `!rules` View the servers Rules \n `!weclome` Welcome A user to the server!');
+		message.channel.send('The Command `!commands` Is Currently Disabled Due To Maintenance \n \n Developer Notice: Command Recieved JavaScript Error \n Set By Developer');
 	}
 });
 

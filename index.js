@@ -23,7 +23,7 @@ client.on('message', message => {
 
 client.on('message', message => {
 	if (message.content === '!servers') {
-		message.channel.send('The Bot is in  \n \n Voiz Dream World: https://discord.gg/EXzPbrp6yZ \n Voiz Utilities Bot Hub: https://discord.gg/4HU6qreYAu \n \n With More To Come!  ');
+		message.channel.send('The Command `!servers` Is Currently Disabled Due To Maintenance \n \n Developer Notice: Command Recieved JavaScript Error \n Set By Developer');
 	}
 });
 

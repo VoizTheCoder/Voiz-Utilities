@@ -153,7 +153,7 @@ client.on('message', message => {
   }); // That up ^here^ tells the bot what channel to send the message in!
 
   client.on('message', message => {
-	if (message.content === '!Vinfo') {
-		message.channel.send('Javascript Crashed');
+	if (message.content === '!vinfo') {
+		message.channel.send('Content Is Univalible, Java Script Could Not Load The Content');
 	}
 });

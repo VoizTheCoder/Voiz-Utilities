@@ -4,7 +4,7 @@ const client = new Discord.Client();
 
 client.once('ready',  () => {
     console.log('Voiz Utilities is online!');
-	client.user.setActivity(`Voiz Dream World`, {type:'WATCHING'});
+	client.user.setActivity(`Voiz Dream World In 1.12`, {type:'WATCHING'});
 }); 
 
 client.login(process.env.token);

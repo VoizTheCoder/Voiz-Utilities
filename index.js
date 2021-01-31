@@ -151,3 +151,9 @@ client.on('message', message => {
    
     channel.send(`Welcome To Voiz Dream World **${member}** Read the Rules and have a great time!`);
   }); // That up ^here^ tells the bot what channel to send the message in!
+
+  client.on('message', message => {
+	if (message.content === '!Vinfo') {
+		message.channel.send('Javascript Crashed');
+	}
+});

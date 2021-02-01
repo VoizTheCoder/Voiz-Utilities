@@ -1,73 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const prefix = '!';
 
 
-client.once('ready',  () => {
-    console.log('Voiz Utilities is online!');
-	client.user.setActivity(`Voiz Dream World│1.12`, {type:'WATCHING'});
-}); 
-
-client.login(process.env.token);
-
-client.on('message', message => {
-	if (message.content === '!devs') {
-		message.channel.send('The Scripter is Voiz#6969 & Tester is Mushy#0013');
-	}
-});
-
-client.on('message', message => {
-	if (message.content === '!help') {
-		message.channel.send('For Extra Support Join The Voiz Utilities Discord Server: https://discord.gg/4HU6qreYAu \n \n Type `!commands` to see the commands');
-	}
-});
-
-client.on('message', message => {
-	if (message.content === '!servers') {
-		message.channel.send('The Command `!servers` Is Currently Disabled Due To Maintenance \n \n Developer Notice: Command Recieved JavaScript Error \n Set By Developer');
-	}
-});
-
-client.on('message', message => {
-	if (message.content === '!commands') {
-		message.channel.send('The Command `!commands` Is Currently Disabled Due To Maintenance \n \n Developer Notice: Command Recieved JavaScript Error \n Set By Developer');
-	}
-});
-
-client.on('message', message => {
-	if (message.content === '!rules') {
-		message.channel.send('Please Specify Which Server \n \n Voiz Dream World: !Rules VDW \n Voiz Utilities Bot Hub: !Rules VBotHub');
-	}
-});
-
-client.on('message', message => {
-	if (message.content === '!rules VDW') {
-		message.channel.send('Sorry. We Hit A RoadBlock. The Command `!rules VDW` is currently disabled. Try Again Later');
-	}
-});
-
-client.on('message', message => {
-	if (message.content === '!rules VBotHub') {
-		message.channel.send('Sorry. We Hit A RoadBlock. The Command `!rules VBotHub` is currently disabled. Try Again Later');
-	}
-});
-
-client.on('message', message => {
-	if (message.content === '!welcome') {
-		message.channel.send('Welcome!');
-	}
-});
-
-client.on('message', message => {
-	if (message.content === 'secret') {
-		message.channel.send('Shhh!');
-	}
-});
-
-client.on('message', message => {
-	if (message.content === '!meme') {
-		message.channel.send('Sorry. The Command `!meme` is currently a feature for the future. If you want to receive updates. Join The Voiz Utilities Server! \n https://discord.gg/4HU6qreYAu');
-	}
-}); 
 
 client.on('message', message => {
  
@@ -157,3 +92,70 @@ client.on('message', message => {
 		message.channel.send('Content Is Univalible, Java Script Could Not Load The Content');
 	}
 });
+
+client.once('ready',  () => {
+    console.log('Voiz Utilities is online!');
+	client.user.setActivity(`Voiz Dream World│1.12`, {type:'WATCHING'});
+}); 
+
+client.login(process.env.token);
+
+client.on('message', message => {
+	if (message.content === '!devs') {
+		message.channel.send('The Scripter is Voiz#6969 & Tester is Mushy#0013');
+	}
+});
+
+client.on('message', message => {
+	if (message.content === '!help') {
+		message.channel.send('For Extra Support Join The Voiz Utilities Discord Server: https://discord.gg/4HU6qreYAu \n \n Type `!commands` to see the commands');
+	}
+});
+
+client.on('message', message => {
+	if (message.content === '!servers') {
+		message.channel.send('The Command `!servers` Is Currently Disabled Due To Maintenance \n \n Developer Notice: Command Recieved JavaScript Error \n Set By Developer');
+	}
+});
+
+client.on('message', message => {
+	if (message.content === '!commands') {
+		message.channel.send('The Command `!commands` Is Currently Disabled Due To Maintenance \n \n Developer Notice: Command Recieved JavaScript Error \n Set By Developer');
+	}
+});
+
+client.on('message', message => {
+	if (message.content === '!rules') {
+		message.channel.send('Please Specify Which Server \n \n Voiz Dream World: !Rules VDW \n Voiz Utilities Bot Hub: !Rules VBotHub');
+	}
+});
+
+client.on('message', message => {
+	if (message.content === '!rules VDW') {
+		message.channel.send('Sorry. We Hit A RoadBlock. The Command `!rules VDW` is currently disabled. Try Again Later');
+	}
+});
+
+client.on('message', message => {
+	if (message.content === '!rules VBotHub') {
+		message.channel.send('Sorry. We Hit A RoadBlock. The Command `!rules VBotHub` is currently disabled. Try Again Later');
+	}
+});
+
+client.on('message', message => {
+	if (message.content === '!welcome') {
+		message.channel.send('Welcome!');
+	}
+});
+
+client.on('message', message => {
+	if (message.content === 'secret') {
+		message.channel.send('Shhh!');
+	}
+});
+
+client.on('message', message => {
+	if (message.content === '!meme') {
+		message.channel.send('Sorry. The Command `!meme` is currently a feature for the future. If you want to receive updates. Join The Voiz Utilities Server! \n https://discord.gg/4HU6qreYAu');
+	}
+}); 

@@ -3,69 +3,6 @@ const client = new Discord.Client();
 const prefix = '!';
 
 
-
-client.on('message', message => {
- 
-	if (!message.guild) return;
-   
-   
-	if (message.content.startsWith('!kick')) {
-	  
-	  const user = message.mentions.users.first(); // This says if you mention this user, it is talking about that user
-	 
-	  if (user) {
-	 
-		const member = message.guild.member(user);
-	  
-		if (member) {
-	   
-		  member.kick('User Was Kicked').then(() => {
-		 
-			message.reply(`Successfully kicked ${user}`);
-		  }).catch(err => {
-		   
-			message.reply('I was unable to kick the member. Check if their roles are higher then mine or if they have administrative permissions!');
-			
-			console.error(err);
-		  });
-		} else {
-		 
-		  message.reply('That user isn\'t in this guild!');
-		}
-   
-	  } else {
-		message.reply('You didn\'t mention the user to kick!'); // Thus is creating a message so that you know if you failed 
-  // The / is to show the script that the (') is not the end of it
-	  }
-	}
-  });
-
-
-  const { MessageEmbed } = require('discord.js');
-
-module.exports = {
-    name: "ban",
-    category: "moderation",
-    run: async (client, message, args) => {
-        if (!message.member.hasPermission('BAN_MEMBERS')) {
-            return message.channel.send(`You are unable to ban members`)
-        }
-        if (!args[0]) {
-            return message.channel.send(`Please mention a user!`)
-        }
-        const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
-
-        try {
-            await member.ban();
-            await message.channel.send(`${member} has been banned!`)
-        } catch (e) {
-            return message.channel.send(`User is not in the server!`)
-        }
-
-    }
-}
-
-
   client.on('guildMemberAdd', member => { //This is creating an event saying when a member joins the server...
     
     const channel = member.guild.channels.find(ch => ch.name === 'general'); //** This is telling the script which server to send teh message in**\\

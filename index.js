@@ -20,7 +20,7 @@ const prefix = '!';
 
 client.once('ready',  () => {
     console.log('Voiz Utilities is online!');
-	client.user.setActivity(`Voiz Dream World│1.12`, {type:'WATCHING'});
+	client.user.setActivity(`${client.guilds.cache.size} Servers!`, {type:'WATCHING'}); 
 }); 
 
 client.login(process.env.token);
@@ -116,7 +116,7 @@ module.exports = {
 }
 
 module.exports = {
-    name: "restart",
+    name: "!restart",
     category: "owner",
     run: async (client, message, args) => {
         if (message.author.id !== '185957154606284800') {

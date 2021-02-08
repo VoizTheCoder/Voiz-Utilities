@@ -54,28 +54,37 @@ module.exports = {
     }
 }
 
-if(command === 'kick'){
-    if(!msg.member.hasPermission('KICK_MEMBERS')) return msg.channel.send("You don't have permission to kick members.");
-    let toKick = msg.mentions.members.first();
-    let reason = args.slice(1).join(" ");
-    if(!args[0]) return msg.channel.send('Please mention someone to kick');
-    if(!toKick) return msg.channel.send(`${args[0]} is not a member.`);
-    if(!reason) return msg.channel.send('Specify a reason.');
 
-    if(!toKick.kickable){
-        return msg.channel.send(':x: I cannot kick someone that is mod/admin. :x:');
+client.on('message', message => {
+    if (message.channel.type != 'text' || message.author.bot)
+      return;
+  
+    let command = message.content.split(' ')[0].slice(1);
+    let args = message.content.replace('.' + command, '').trim();
+    let isBotOwner = message.author.id == 'your_user_id';
+  
+    switch (command) {
+      case 'restart': {
+        if (!isBotOwner)
+          return;
+  
+        message.channel.send('Restarting...').then(m => {
+          client.destroy().then(() => {
+            client.login('token');
+          });
+        });
+        break;
+      }
+  
+  
+      case 'shutdown': {
+        if (!isBotOwner)
+          return;
+  
+        message.channel.send('Shutting down...').then(m => {
+          client.destroy();
+        });
+        break;
+      }
     }
-
-    if(toKick.kickable){
-        let x = new Discord.MessageEmbed()
-        .setTitle('Kick')
-        .addField('Member Kicked', toKick)
-        .addField('Kicked by', msg.author)
-        .addField('Reason', reason)
-        .addField('Date', msg.createdAt)
-        .setColor(r);
-
-        msg.channel.send(x);
-        toKick.kick();
-    }
-}
+  });

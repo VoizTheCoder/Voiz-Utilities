@@ -54,7 +54,7 @@ module.exports = {
     }
 }
 
-if(cmd === 'kick'){
+if(command === 'kick'){
     if(!msg.member.hasPermission('KICK_MEMBERS')) return msg.channel.send("You don't have permission to kick members.");
     let toKick = msg.mentions.members.first();
     let reason = args.slice(1).join(" ");

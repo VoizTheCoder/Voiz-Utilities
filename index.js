@@ -19,7 +19,7 @@ const prefix = '!';
 });
 
 client.once('ready',  () => {
-    console.log('Voiz Utilities is online!');
+    console.log('Ready');
 	client.user.setActivity(`${client.guilds.cache.size} Servers!`, {type:'WATCHING'}); 
 }); 
 

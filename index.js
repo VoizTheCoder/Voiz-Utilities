@@ -23,67 +23,6 @@ client.once('ready',  () => {
 	client.user.setActivity(`${client.guilds.cache.size} Servers!`, {type:'WATCHING'}); 
 }); 
 
-client.login(process.env.token);
-
-client.on('message', message => {
-	if (message.content === '!devs') {
-		message.channel.send('The Scripter is Voiz#6969 & Tester is Mushy#0013');
-	}
-});
-
-client.on('message', message => {
-	if (message.content === '!help') {
-		message.channel.send('For Extra Support Join The Voiz Utilities Discord Server: https://discord.gg/4HU6qreYAu \n \n Type `!commands` to see the commands');
-	}
-});
-
-client.on('message', message => {
-	if (message.content === '!servers') {
-		message.channel.send('The Command `!servers` Is Currently Disabled Due To Maintenance \n \n Developer Notice: Command Recieved JavaScript Error \n Set By Developer');
-	}
-});
-
-client.on('message', message => {
-	if (message.content === '!commands') {
-		message.channel.send('The Command `!commands` Is Currently Disabled Due To Maintenance \n \n Developer Notice: Command Recieved JavaScript Error \n Set By Developer');
-	}
-});
-
-client.on('message', message => {
-	if (message.content === '!rules') {
-		message.channel.send('Please Specify Which Server \n \n Voiz Dream World: !Rules VDW \n Voiz Utilities Bot Hub: !Rules VBotHub');
-	}
-});
-
-client.on('message', message => {
-	if (message.content === '!rules VDW') {
-		message.channel.send('Sorry. We Hit A RoadBlock. The Command `!rules VDW` is currently disabled. Try Again Later');
-	}
-});
-
-client.on('message', message => {
-	if (message.content === '!rules VBotHub') {
-		message.channel.send('Sorry. We Hit A RoadBlock. The Command `!rules VBotHub` is currently disabled. Try Again Later');
-	}
-});
-
-client.on('message', message => {
-	if (message.content === '!welcome') {
-		message.channel.send('Welcome!');
-	}
-});
-
-client.on('message', message => {
-	if (message.content === 'secret') {
-		message.channel.send('Shhh!');
-	}
-});
-
-client.on('message', message => {
-	if (message.content === '!meme') {
-		message.channel.send('Sorry. The Command `!meme` is currently a feature for the future. If you want to receive updates. Join The Voiz Utilities Server! \n https://discord.gg/4HU6qreYAu');
-	}
-}); 
 
 const { MessageEmbed } = require('discord.js');
 
@@ -115,14 +54,28 @@ module.exports = {
     }
 }
 
-module.exports = {
-    name: "!restart",
-    category: "owner",
-    run: async (client, message, args) => {
-        if (message.author.id !== '185957154606284800') {
-            return message.channel.send(`You cannot use this command!`)
-        }
-        await message.channel.send(`Restarting bot...`)
-        process.exit();
+if(cmd === 'kick'){
+    if(!msg.member.hasPermission('KICK_MEMBERS')) return msg.channel.send("You don't have permission to kick members.");
+    let toKick = msg.mentions.members.first();
+    let reason = args.slice(1).join(" ");
+    if(!args[0]) return msg.channel.send('Please mention someone to kick');
+    if(!toKick) return msg.channel.send(`${args[0]} is not a member.`);
+    if(!reason) return msg.channel.send('Specify a reason.');
+
+    if(!toKick.kickable){
+        return msg.channel.send(':x: I cannot kick someone that is mod/admin. :x:');
+    }
+
+    if(toKick.kickable){
+        let x = new Discord.MessageEmbed()
+        .setTitle('Kick')
+        .addField('Member Kicked', toKick)
+        .addField('Kicked by', msg.author)
+        .addField('Reason', reason)
+        .addField('Date', msg.createdAt)
+        .setColor(r);
+
+        msg.channel.send(x);
+        toKick.kick();
     }
 }

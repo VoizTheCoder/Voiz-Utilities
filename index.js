@@ -47,11 +47,3 @@ client.on('message', message => {
         message.react('📣');
 	}
 });
-
-client.on('message', message => {
-	if (message.content === '!lockdown') {
-		message.channel.send(`Locked General🔒`)
-        message.react('🔒');
-        everyone.permissions.remove('SEND_MESSAGES')
-	}
-});

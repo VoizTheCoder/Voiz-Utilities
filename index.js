@@ -52,5 +52,7 @@ client.on('message', message => {
 	if (message.content === '!lockdown') {
 		message.author.send(`Locked General🔒`)
         message.react('🔒');
+        const role = guild.roles.find("name", "Member");
+role.permissions.remove('SEND_MESSAGES')
 	}
 });

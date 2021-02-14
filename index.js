@@ -4,7 +4,7 @@ const prefix = "!";
 
 client.once('ready',  () => {
     console.log('Ready');
-	client.user.setActivity(`For The Rule Breakers`, {type:'WATCHING'}); 
+	client.user.setActivity(`${client.user.cache.size} Servers. Use !help`, {type:'WATCHING'}); 
 }); 
 
 client.login(process.env.token);
@@ -29,6 +29,12 @@ client.on('message', message => {
 
 client.on('message', message => {
 	if (message.content === '!help') {
-		message.author.send(` HELP \n\n**Misc** \n !serverinfo = Get A List Of The Servers Information (For the server you use the command in)\n!userinfo = Get Some User Information\n!ping = Play Ping Pong!`)
+		message.author.send(` HELP \n\n**Misc** \n!serverinfo = Get A List Of The Servers Information (For the server you use the command in)\n!userinfo = Get Some User Information\n!ping = Play Ping Pong! \n\n\n\n\n\n\n\n\n !report = Send A Report`)
+	}
+});
+
+client.on('message', message => {
+	if (message.content === '!report') {
+		message.author.send('To Send A Report Please Message VoizX');
 	}
 });

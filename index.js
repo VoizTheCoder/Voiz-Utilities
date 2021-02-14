@@ -43,7 +43,7 @@ client.on('message', message => {
 client.on('message', message => {
 	if (message.content === '!furret') {
 		message.channel.send(`Are You A Furret?`)
-        message.react('📣');
-        message.react('📣');
+        message.react('✅');
+        message.react('❌');
 	}
 });

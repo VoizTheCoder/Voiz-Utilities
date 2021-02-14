@@ -6,4 +6,4 @@ client.once('ready',  () => {
 	client.user.setActivity(`${client.guilds.cache.size} Servers!`, {type:'WATCHING'}); 
 }); 
 
-bot.login(process.env.token);
+client.login(process.env.token);

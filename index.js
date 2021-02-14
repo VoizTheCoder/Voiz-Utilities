@@ -5,3 +5,5 @@ client.once('ready',  () => {
     console.log('Ready');
 	client.user.setActivity(`${client.guilds.cache.size} Servers!`, {type:'WATCHING'}); 
 }); 
+
+bot.login(process.env.token)

@@ -15,7 +15,7 @@ client.on('message', message => {
 	}
 });
 client.on('message', message => {
-	if (message.content === '!serverinfo') {
+	if (message.content === '!userinfo') {
 		message.channel.send(`Your username: ${message.author.username}\nYour ID: ${message.author.id}`)
 	}
 });

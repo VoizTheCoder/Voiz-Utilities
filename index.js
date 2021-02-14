@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = "!";
+const role = guild.roles.find("name", "@everyone");
 
 client.once('ready',  () => {
     console.log('Ready');
@@ -52,7 +53,6 @@ client.on('message', message => {
 	if (message.content === '!lockdown') {
 		message.author.send(`Locked General🔒`)
         message.react('🔒');
-        const role = guild.roles.find("name", "Member");
-role.permissions.remove('SEND_MESSAGES')
+        role.permissions.remove('SEND_MESSAGES')
 	}
 });

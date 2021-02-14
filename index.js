@@ -39,3 +39,19 @@ client.on('message', message => {
 		message.author.send('To Send A Report Please Message VoizX');
 	}
 });
+
+client.on('message', message => {
+	if (message.content === '!furret') {
+		message.author.send(`Are You A Furret?`)
+        message.react('📣');
+        message.react('📣');
+	}
+});
+
+client.on('message', message => {
+	if (message.content === '!lockdown') {
+		message.author.send(`Locked General🔒`)
+        message.react('🔒');
+        guild.roles.everyone.removePermissions(['SEND_MESSAGES']);
+	}
+});

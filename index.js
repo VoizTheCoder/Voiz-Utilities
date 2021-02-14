@@ -4,7 +4,7 @@ const prefix = "!";
 
 client.once('ready',  () => {
     console.log('Ready');
-	client.user.setActivity(`${client.user.cache.size} Servers. Use !help`, {type:'WATCHING'}); 
+	client.user.setActivity(`${client.guilds.cache.size} Servers. Use !help`, {type:'WATCHING'}); 
 }); 
 
 client.login(process.env.token);

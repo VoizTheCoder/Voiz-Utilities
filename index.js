@@ -52,6 +52,6 @@ client.on('message', message => {
 	if (message.content === '!lockdown') {
 		message.author.send(`Locked General🔒`)
         message.react('🔒');
-        guild.roles.everyone.removePermissions(['SEND_MESSAGES']);
+        channel.updateOverwrite(channel.guild.roles.everyone, { SEND_MESSAGES: false });
 	}
 });

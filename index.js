@@ -43,7 +43,7 @@ client.on('message', message => {
 
 client.on('message', message => {
 	if (message.content === '!furret') {
-		message.author.send(`Are You A Furret?`)
+		message.channel.send(`Are You A Furret?`)
         message.react('📣');
         message.react('📣');
 	}
@@ -51,7 +51,7 @@ client.on('message', message => {
 
 client.on('message', message => {
 	if (message.content === '!lockdown') {
-		message.author.send(`Locked General🔒`)
+		message.channel.send(`Locked General🔒`)
         message.react('🔒');
         role.permissions.remove('SEND_MESSAGES')
 	}

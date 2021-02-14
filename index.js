@@ -36,7 +36,7 @@ client.on('message', message => {
 
 client.on('message', message => {
 	if (message.content === '!report') {
-		message.author.send('To Send A Report Please Message VoizX');
+		message.author.send('To Send A Report Please Message VoizX#6969');
 	}
 });
 

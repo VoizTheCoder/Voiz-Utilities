@@ -8,7 +8,7 @@ client.once('ready',  () => {
 
 client.login(process.env.token);
 
-var Discord = require('discord.js');
+const Discord = require('discord.js');
 
 exports.run = async(client, msg, args) => {
     if(!msg.member.hasPermission('KICK_MEMBERS')) return msg.reply('You can\'t use that!');
@@ -54,7 +54,7 @@ exports.run = async(client, msg, args) => {
     msg.channel.send(`**${user}** has been kicked by **${msg.author}**!`);
 }
 
-var Discord = require('discord.js');
+const Discord = require('discord.js');
 
 exports.run = async(client, msg, args) => {
     if(!msg.member.hasPermission('BAN_MEMBERS')) return msg.reply('You can\'t use that!');

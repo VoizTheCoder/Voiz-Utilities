@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = "!";
-const role = guild.roles.find("name", "@everyone");
+const role = guild.roles.find("name", "Member");
 
 client.once('ready',  () => {
     console.log('Ready');

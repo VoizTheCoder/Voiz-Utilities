@@ -58,7 +58,7 @@ client.on('message', message => {
 
 
 client.on('message', message => {
-	if (message.content === '') {
+	if (message.content === '!info') {
 		const Embed = new RichEmbed()
 		.setTitle("Help")
 		.setColor(0xFF0000)

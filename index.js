@@ -56,3 +56,26 @@ client.on('message', message => {
 	}
 });
 
+if (message.content.startsWith(`!lockdown`)) {
+	if (!message.member.hasPermission(["ADMINISTRATOR"])) return message.reply('You can\'t use this command!')
+	const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category');
+	if (args[1] === 'on') {
+		channels.forEach(channel => {
+			channel.updateOverwrite(message.guild.roles.everyone, {
+				SEND_MESSAGES: false
+			}).then(() => {
+				channel.setName(channel.name += `General🔒`)
+			})
+		})
+		return message.channel.send('Locked all channels');
+	} else if (args[1] === 'off') {
+		channels.forEach(channel => {
+			channel.updateOverwrite(message.guild.roles.everyone, {
+				SEND_MESSAGES: true
+			}).then(() => {
+				channel.setName(channel.name.replace('🔒', ''))
+			})
+		})
+		return message.channel.send('Unlocked all channels')
+	}
+}

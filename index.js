@@ -55,3 +55,18 @@ client.on('message', message => {
 		message.react('💤');
 	}
 });
+
+
+client.on('message', message => {
+	if (message.content === '') {
+		const Embed = new RichEmbed()
+		.setTitle("Help")
+		.setColor(0xFF0000)
+		.setDescription("Use The Command !help to get information about the bot");
+
+		message.author.send(Embed);
+	break;
+}
+
+
+});

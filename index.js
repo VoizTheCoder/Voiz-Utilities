@@ -56,16 +56,3 @@ client.on('message', message => {
 	}
 });
 
-
-client.on('message', message => {
-	if (message.content === '!info') {
-		const Embed = Embed()
-		.setTitle("Help")
-		.setColor(0xFF0000)
-		.setDescription("Use The Command !help to get information about the bot");
-
-		message.author.send(Embed);
-}
-
-
-});

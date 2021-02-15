@@ -51,7 +51,7 @@ client.on('message', message => {
 
 client.on('message', message => {
 	if (message.content === '!react') {
-		message.author.send('Reacted.')
-		message.react('🏝');
+		message.channel.send('Reacted.')
+		message.react('👏');
 	}
 });

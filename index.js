@@ -94,8 +94,7 @@ client.on("message", async message => {
     }
 
 })
-
-if(cmd === "!kick") {
+if (msg.content.startsWith("!kick ")) {
 if (msg.member.hasPermission("KICK_MEMBERS")) 
     if (msg.members.mentions.first()) {
         try {

@@ -56,27 +56,41 @@ client.on('message', message => {
 	}
 });
 
-client.on('message', message => {
-	if (message.content === '!test') {
-	if (!message.member.hasPermission(["ADMINISTRATOR"])) return message.reply('You can\'t use this command!')
-	const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category');
-	if (args[1] === 'on') {
-		channels.forEach(channel => {
-			channel.updateOverwrite(message.guild.roles.everyone, {
-				SEND_MESSAGES: false
-			}).then(() => {
-				channel.setName(channel.name += `General🔒`)
-			})
-		})
-		return message.channel.send('Locked all channels');
-	} else if (args[1] === 'off') {
-		channels.forEach(channel => {
-			channel.updateOverwrite(message.guild.roles.everyone, {
-				SEND_MESSAGES: true
-			}).then(() => {
-				channel.setName(channel.name.replace('🔒', ''))
-			})
-		})
-		return message.channel.send('Unlocked all channels')
-	}
-}
+bot.on("message", async message => {
+    if(message.author.bot || message.channel.type === "dm") return;
+
+
+    //args system that is very required!!!!
+    let messageArray = message.content.split(" ")
+    let args = messageArray.slice(1);
+
+    let cmd = messageArray[0];
+
+    if(cmd === "!ban") {
+        let toBan = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]);
+
+        if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("You need permissions!") 
+        if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("Bot need permissions!") 
+
+        const reason = args[1] || "There was no reason!";
+
+        toBan.ban({
+            reason: reason
+        })
+        message.channel.send(`${toBan} has been banned from the server!\nReason: ${reason}`)
+    }
+
+    if(cmd === "?unban") {
+        let toBan = await bot.users.fetch(args[0])
+
+        if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("You need permissions!") 
+        if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("Bot need permissions!") 
+
+        const reason = args[1] || "There was no reason!";
+
+        message.guild.members.unban(toBan, reason)
+
+        message.channel.send(`${toBan} has been unbanned from the server!`)
+    }
+
+})

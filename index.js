@@ -47,3 +47,11 @@ client.on('message', message => {
         message.react('❌');
 	}
 });
+
+
+client.on('message', message => {
+	if (message.content === '!react') {
+		message.author.send('Reacted.')
+		message.react('🏝');
+	}
+});

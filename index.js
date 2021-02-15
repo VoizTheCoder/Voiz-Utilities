@@ -50,8 +50,8 @@ client.on('message', message => {
 
 
 client.on('message', message => {
-	if (message.content === '!react') {
-		message.author.send('reacted!')
-		message.react('👮');
+	if (message.content === '!test') {
+		message.author.send('Tested!')
+		message.react('💤');
 	}
 });

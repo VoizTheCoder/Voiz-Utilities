@@ -95,10 +95,6 @@ client.on("message", async message => {
 
 })
 
-let messageArray = message.content.split(" ");
-let args = messageArray.slice(1);
-let cmd = messageArray[0];
-
  if(cmd === '?tempmute'){
 	if(message.member.hasPermission('MANAGE_MESSAGES')) {
 		var member = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));

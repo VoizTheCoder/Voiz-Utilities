@@ -65,7 +65,6 @@ client.on('message', message => {
 		.setDescription("Use The Command !help to get information about the bot");
 
 		message.author.send(Embed);
-	break;
 }
 
 

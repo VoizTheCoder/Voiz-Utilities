@@ -127,7 +127,6 @@ client.on('message', message =>{
     }
 })
 
-let args = messageArray.slice(1);
 let cmd = messageArray[0];
 
  if(cmd === '!tempmute'){

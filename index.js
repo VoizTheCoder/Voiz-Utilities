@@ -126,3 +126,12 @@ client.on('message', message =>{
         break;
     }
 })
+
+var args = msg.content.substr(1).split(/ +/);
+var command = args[0].toLowerCase();
+
+if(command === "!slowmode"){
+   if(args[1] != null){
+      msg.channel.setRateLimitPerUser(args[1] , "reason");
+   }
+}

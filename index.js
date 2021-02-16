@@ -99,13 +99,16 @@ client.on("message", async message => {
 
 })
 
-if (cmd === "!kick") {
-    if (!message.member.hasPermission("KICK_MEMBERS")) return;
-     if (msg.mentions.members.first()) {
-         msg.mentions.members.first.kick().then((member) => {
-             msg.channel.send("I successfully kicked the user from this guild!");
-         }).catch(() => {
-             msg.channel.send("I do not have permissions to do this");
-         });
-     }
- }
+if(cmd === "!kick") {
+    let toBan = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]);
+
+    if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("You need permissions!") 
+    if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send("Bot need permissions!") 
+
+    const reason = args[1] || "There was no reason!";
+
+    toBan.kick({
+        reason: reason
+    })
+    message.channel.send(`${toBan} has been kicked from the server!\nReason: ${reason}`)
+}

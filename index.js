@@ -100,7 +100,6 @@ client.on("message", async message => {
 })
 
 if (cmd === "!kick") {
-    let toBan = await bot.users.fetch(args[0])
     if (!message.member.hasPermission("KICK_MEMBERS")) return;
      if (msg.mentions.members.first()) {
          msg.mentions.members.first.kick().then((member) => {

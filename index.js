@@ -126,7 +126,7 @@ client.on('message', message =>{
         break;
     }
 })
-let messageArray = message.content.split(" ");
+let messageArray
 let args = messageArray.slice(1);
 let cmd = messageArray[0];
 

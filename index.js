@@ -99,7 +99,9 @@ client.on("message", async message => {
 
 })
 
-if (msg.content.startsWith("!kick"))
+
+client.on('message', message => {
+    if (message.content === '!kick') {
 if (msg.member.hasPermission("KICK_MEMBERS")) {
     if (msg.members.mentions.first()) {
         try {

@@ -80,7 +80,7 @@ client.on("message", async message => {
         message.channel.send(`${toBan} has been banned from the server!\nReason: ${reason}`)
     }
 
-    if(cmd === "?unban") {
+    if(cmd === "!unban") {
         let toBan = await bot.users.fetch(args[0])
 
         if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("You need permissions!") 
@@ -94,4 +94,3 @@ client.on("message", async message => {
     }
 
 })
-

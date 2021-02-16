@@ -98,3 +98,31 @@ client.on("message", async message => {
     }
 
 })
+
+bot.on('message', message =>{
+ 
+    let args = message.content.substring(PREFIX.length).split(" ")
+ 
+    switch(args[0]){
+        case'kick':
+        if(!args[1]) message.channel.send('Specify a person !')
+        if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("You don't have permission to do that :x:")
+        const user = message.mentions.users.first();
+ 
+        if(user){
+            const member = message.guild.member(user);
+ 
+            if(member){
+                member.kick('Kicked !').then(() =>{
+                    message.reply(`Kicked ${user.tag}`)
+                }).catch(err =>{
+                    message.reply("I can't kick the user :x:")
+                    console.log(err)
+                });
+            } else{
+                message.reply("Is not in the server :x:")
+            }
+        }
+        break;
+    }
+})

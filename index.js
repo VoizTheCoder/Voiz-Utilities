@@ -9,6 +9,10 @@ client.once('ready',  () => {
 
 client.login(process.env.token);
 
+client.on('guildBanAdd', async (guild, user) => {
+	console.log(`${user.tag} got hit with the ban hammer in the ${guild.name}.`);
+});
+
 client.on('message', message => {
 	if (message.content === '!serverinfo') {
 		message.channel.send(`Server name: ${message.guild.name} \nTotal members: ${message.guild.memberCount}\n Created At: ${message.guild.createdAt}\n Server Region: ${message.guild.region}`)

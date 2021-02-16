@@ -126,6 +126,9 @@ client.on('message', message =>{
         break;
     }
 })
+let messageArray = message.content.split(" ");
+let args = messageArray.slice(1);
+let cmd = messageArray[0];
 
  if(cmd === '!tempmute'){
     if(message.member.hasPermission('MANAGE_MESSAGES')) {
@@ -154,6 +157,6 @@ client.on('message', message =>{
         }, ms(time));
 
     } else {
-        return message.channel.send('You dont have needed permissions!')
+        return message.channel.send('You dont have perms.')
     }
 }

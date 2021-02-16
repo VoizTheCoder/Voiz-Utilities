@@ -99,6 +99,15 @@ client.on("message", async message => {
 
 })
 
+client.on("message", async message => {
+    if(message.author.bot || message.channel.type === "dm") return;
+
+    
+let messageArray = message.content.split(" ")
+    let args = messageArray.slice(1);
+
+    let cmd = messageArray[0];
+
 if(cmd === "!kick") {
     let toBan = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]);
 

@@ -127,7 +127,7 @@ client.on('message', message =>{
     }
 })
 
-var args = message.content.substr(1).split(/ +/);
+
 var command = args[0].toLowerCase();
 
 if(command === "!slowmode"){

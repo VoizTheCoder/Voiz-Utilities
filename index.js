@@ -127,6 +127,8 @@ client.on('message', message =>{
     }
 })
      
+const Discord = require("discord.js")
+const db = require("quick.db")
 module.exports.run = async(client,message,args)=> {
 
     if(!message.member.hasPermission("MANAGE_CHANNELS")) return;
@@ -139,8 +141,9 @@ module.exports.run = async(client,message,args)=> {
         db.set(`lock.${message.channel.id}`,message.author.id)
         message.channel.updateOverwrite(message.guild.roles.cache.find(e => e.name.toLowerCase().trim() == "@everyone"),{
             SEND_MESSAGES:false,
+            ADD_REACTIONS:false
         })
-        msg.edit("Locked")
+        msg.edit(":white_check_marker:")
 
     }catch(e){
         message.channel.send(e)

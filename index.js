@@ -127,7 +127,9 @@ client.on('message', message =>{
     }
 })
      
-module.exports.run = async(client,message,args)=> {
+client.on('message', message =>{
+ 
+    let args = message.content.substring(prefix.length).split(" ")
 
     if(!message.member.hasPermission("MANAGE_CHANNELS")) return;
 

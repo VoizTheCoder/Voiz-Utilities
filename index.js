@@ -33,7 +33,7 @@ client.on('message', message => {
 
 client.on('message', message => {
 	if (message.content === '!help') {
-		message.author.send(` HELP \n\n**Misc** \n!serverinfo = Get A List Of The Servers Information (For the server you use the command in)\n!userinfo = Get Some User Information\n!ping = Play Ping Pong! \n\n\n\n\n\n\n\n\n !report = Send A Report`)
+		message.author.send(` HELP \n\n __Moderation__ \n !kick <user> <reason> \n !ban <user> <reason>\n\n__Misc__ \n!serverinfo = Get A List Of The Servers Information (For the server you use the command in)\n!userinfo = Get Some User Information\n!ping = Play Ping Pong! \n\n\n For Extra Help Contact VoizX#6969`)
         message.react('📣');
 	}
 });

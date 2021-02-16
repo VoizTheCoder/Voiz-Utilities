@@ -127,7 +127,6 @@ client.on('message', message =>{
     }
 })
 
-const Discord = module.require('discord.js');
 module.exports.run = async (bot, message, args) => {
 if(!args[1]) return message.channel.send("Spefify the length of slowmode in seconds! (1-21600 Seconds)")
 let duration = args[1]

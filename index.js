@@ -64,7 +64,7 @@ client.on("message", async message => {
     if(message.author.bot || message.channel.type === "dm") return;
 
 
-    //args system that is very required!!!!
+
     let messageArray = message.content.split(" ")
     let args = messageArray.slice(1);
 

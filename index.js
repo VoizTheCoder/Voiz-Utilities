@@ -127,9 +127,6 @@ client.on('message', message =>{
     }
 })
 
-
-var command = args[0].toLowerCase();
-
 if(command === "!slowmode"){
    if(args[1] != null){
       message.channel.setRateLimitPerUser(args[1] , "reason");

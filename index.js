@@ -127,8 +127,6 @@ client.on('message', message =>{
     }
 })
      
-const Discord = require("discord.js")
-const db = require("quick.db")
 module.exports.run = async(client,message,args)=> {
 
     if(!message.member.hasPermission("MANAGE_CHANNELS")) return;

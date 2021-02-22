@@ -107,7 +107,7 @@ client.on('message', message =>{
  
     switch(args[0]){
         case'kick':
-        if(!args[1]) message.channel.send('Specify a person !')
+        if(!args[1]) message.channel.send('Please Specify a person!')
         if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("You don't have permission to do that :x:")
         const user = message.mentions.users.first();
  

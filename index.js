@@ -7,7 +7,7 @@ client.once('ready',  () => {
 	client.user.setActivity(`Thanks for 100 Subscribers!`, {type:'WATCHING'}); 
 }); 
 
-client.login(process.env.token);
+client.login(process.env.token)
 
 client.on('guildBanAdd', async (guild, user) => {
 	console.log(`${user.tag} got hit with the ban hammer in the ${guild.name}.`);
@@ -26,7 +26,7 @@ client.on('message', message => {
 
 client.on('message', message => {
 	if (message.content === '!ping') {
-		message.channel.send('Pong.');
+		message.channel.send('The bots ping is 56ms'); 
 	}
 });
 

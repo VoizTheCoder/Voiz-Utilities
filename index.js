@@ -4,7 +4,7 @@ const prefix = '!';
 
 client.once('ready',  () => {
     console.log('Ready');
-	client.user.setActivity(`Thank you for 100 Subscribers!`, {type:'WATCHING'}); 
+	client.user.setActivity(`Thanks for 100 Subscribers!`, {type:'WATCHING'}); 
 }); 
 
 

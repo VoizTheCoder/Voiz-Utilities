@@ -2,12 +2,12 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = '!';
 
-client.login(process.env.token);
-
 client.once('ready',  () => {
     console.log('Ready');
 	client.user.setActivity(`Thanks for 100 Subscribers!`, {type:'WATCHING'}); 
 }); 
+
+client.login(process.env.token);
 
 client.on('guildBanAdd', async (guild, user) => {
 	console.log(`${user.tag} got hit with the ban hammer in the ${guild.name}.`);

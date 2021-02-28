@@ -126,3 +126,9 @@ client.on('message', message =>{
         break;
     }
 })
+
+client.on('message', message => {
+	if (message.content === '!status') {
+		message.channel.send(`The Bots Current Activity Is ${presense.Activity[0].name}`)
+	}
+});

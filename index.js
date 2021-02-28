@@ -55,7 +55,7 @@ client.on('message', message => {
 
 client.on('message', message => {
 	if (message.content === '!test') {
-		message.author.send('Tested!')
+		message.channel.send('This is A Test Message By Voiz Utilities \n\n All Functions Working Properly.')
 		message.react('💤');
 	}
 });
